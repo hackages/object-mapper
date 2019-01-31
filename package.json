@@ -1,0 +1,23 @@
+{
+  "name": "@hackages/object-mapper",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:hackages/object-mapper.git",
+  "author": "Victor <victor@hackages.io>",
+  "license": "MIT",
+  "dependencies": {
+    "ramda": "^0.26.1"
+  },
+  "scripts": {
+    "copy": "cp package.json dist/package.json && cp README.md dist/README.md",
+    "rollup": "rollup -c -o dist/index.js",
+    "build": "yarn copy && yarn rollup"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.3",
+    "rollup": "^1.1.2",
+    "rollup-plugin-typescript": "^1.0.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.2.4"
+  }
+}
