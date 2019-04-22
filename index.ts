@@ -2,7 +2,7 @@ import {is, keys} from 'ramda';
 
 interface Transform {
   key: string;
-  transform: <T>(v: any, obj: T) => any;
+  transform?: <T>(v: any, obj: T) => any;
   when?: <T>(v: any, obj: T) => any;
   default?: any;
 }
@@ -28,15 +28,10 @@ const transformObj = <T>(
   value: string,
   obj: T
 ): Partial<T> => {
-  const {
-    key,
-    transform: _transforn,
-    default: _default,
-    when
-  } = mapValue as Transform;
+  const {key, transform: _transforn, default: _default, when} = mapValue;
 
   if (value && when(value, obj)) {
-    return {...acc, [key]: _transforn(value, obj)};
+    return {...acc, [key]: _transforn ? _transforn(value, obj) : value};
   } else {
     return {...acc, ...(_default ? {[key]: _default} : {})};
   }
