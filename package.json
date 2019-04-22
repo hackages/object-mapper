@@ -1,6 +1,6 @@
 {
   "name": "@hackages/object-mapper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "repository": "git@github.com:hackages/object-mapper.git",
   "author": "Victor <victor@hackages.io>",
