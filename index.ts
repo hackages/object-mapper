@@ -30,7 +30,7 @@ const transformObj = <T>(
 ): Partial<T> => {
   const {key, transform: _transforn, default: _default, when} = mapValue;
 
-  if (value && when(value, obj)) {
+  if (value && (!when || when(value, obj))) {
     return {...acc, [key]: _transforn ? _transforn(value, obj) : value};
   } else {
     return {...acc, ...(_default ? {[key]: _default} : {})};
